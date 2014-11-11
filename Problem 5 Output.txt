@@ -1,0 +1,46 @@
+/* Jay Hankins
+ * Avon High School
+ * IUPUI Math Contest - Problem #5
+ * 
+ * Original Contest Problem:
+ * You have ten Scrabble
+ * tiles with the letters A E F G I L M N O S in that
+ * order. Your task is to shuffle them around to obtain a ten-letter English word (there
+ * is only one). However, you are only allowed two types of manipulation: you can shift
+ * the first letter to the last position, and you can pick the letters in odd positions (in
+ * order) followed by the letters in even positions (in order). Thus, starting with the
+ * letters in alphabetic order, you can reach E F G I L M N O S A , and A
+ * F I M O E G L N S . What is the shortest sequence of moves needed to
+ * complete the task?
+
+ * This Java program outputs the number position result of the word "flamingoes," the only 
+ * 10-letter English word than can be spelled from the given letters, by performing the 
+ * operations like a recursion tree (see diagram). 
+ * Note: This program does not output the number of "tries" or "moves" to get to 
+ * "flamingoes." I will explain the logic behind deducing the number of moves from the position by hand.
+ */
+ 
+Program Output:
+WORD					  	   MOVE TYPE AND DESCRIPTION 		 MOVE #
+=========================================================================				
+AEFGILMNOS //line 1, 										 	 move 0.
+EFGILMNOSA //line 2 = 		even 	= first to last letter, 	 move 1.
+FGILMNOSAE //line 4 = 		even 	= first to last letter, 	 move 2.
+FIMOAGLNSE //line 9 = 		odd 	= odd then even letters, 	 move 3.
+FMALSIOGNE //line 19 = 		odd 	= odd then even letters, 	 move 4.
+FASONMLIGE //line 39 = 		odd 	= odd then even letters, 	 move 5.
+FSNLGAOMIE //line 79 = 		odd 	= odd then even letters, 	 move 6.
+SNLGAOMIEF //line 158 =		even 	= first to last letter, 	 move 7.
+SLAMENGOIF //line 317 = 	odd		= odd then even letters, 	 move 8.
+SAEGILMNOF //line 635 = 	odd 	= odd then ever letters, 	 move 9.
+SEIMOAGLNF //line 1271 =	odd 	= odd then even letters, 	 move 10.
+EIMOAGLNFS //line 2542 = 	even 	= first to last letters, 	 move 11.
+IMOAGLNFSE //line 5084 = 	even 	= first to last letters, 	 move 12.
+IOGNSMALFE //line 10169 = 	odd 	= odd then even letters,	 move 13.
+IGSAFONMLE //line 20339 =	odd 	= odd then even letters, 	 move 14.
+ISFNLGAOME //line 40679 = 	odd 	= odd then even letters, 	 move 15.
+SFNLGAOMEI //line 81358 = 	even 	= first to last letters,  	 move 16.
+FNLGAOMEIS //line 162716 = 	even	= first to last letters, 	 move 17.
+FLAMINGOES //line 325433 = 	odd 	= odd then even letters,  	 move 18.
+
+The position of the word "flamingoes" is: 325433. Position 325433 is reached after 18 moves.
